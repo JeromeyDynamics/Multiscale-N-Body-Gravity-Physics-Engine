@@ -17,7 +17,9 @@ find_package(SFML 2.6 COMPONENTS graphics window system
         NO_DEFAULT_PATH
         REQUIRED)
 
-add_executable(${PROJECT_NAME} main.cpp)
+add_executable(${PROJECT_NAME} main.cpp
+        examples/simple/ball_collision.cpp
+)
 target_link_libraries(${PROJECT_NAME} PRIVATE sfml-graphics sfml-window sfml-system)
 
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
@@ -25,3 +27,7 @@ add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
         "${CMAKE_SOURCE_DIR}/external/SFML-2.6.2/bin"
         $<TARGET_FILE_DIR:${PROJECT_NAME}>
 )
+
+add_subdirectory(src)
+add_subdirectory(examples)
+add_subdirectory(tests)
