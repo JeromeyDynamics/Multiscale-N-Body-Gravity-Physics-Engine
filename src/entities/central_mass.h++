@@ -1,16 +1,12 @@
-//
-// Created by jerom on 7/12/2025.
-//
+//used instead of having the guards
+#pragma once
+#include <SFML/Graphics.hpp>
 
-#ifndef CENTRAL_MASS_H
-#define CENTRAL_MASS_H
+class CentralMass {
+public:
+    CentralMass(float x, float y, float radius, sf::Color color = sf::Color::Yellow);
+    const sf::CircleShape& getShape() const;
 
-
-
-class central_mass {
-
+private:
+    sf::CircleShape shape;
 };
-
-
-
-#endif //CENTRAL_MASS_H
