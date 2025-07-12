@@ -19,6 +19,25 @@ find_package(SFML 2.6 COMPONENTS graphics window system
 
 add_executable(${PROJECT_NAME} main.cpp
         examples/simple/ball_collision.cpp
+        src/core/simulation.cpp
+        src/core/simulation.h++
+        src/core/sim_object.h++
+        src/core/object_manager.cpp
+        src/core/object_manager.h++
+        src/core/integrator.cpp
+        src/core/integrator.h++
+        src/entities/orbit_object.cpp
+        src/entities/orbit_object.h++
+        src/entities/central_mass.cpp
+        src/entities/central_mass.h++
+        src/physics/gravity.cpp
+        src/physics/gravity.h++
+        src/physics/vector_math.cpp
+        src/physics/vector_math.h++
+        src/physics/constants.h++
+        src/render/renderer.cpp
+        src/render/renderer.h++
+        src/render/color_palette.h++
 )
 target_link_libraries(${PROJECT_NAME} PRIVATE sfml-graphics sfml-window sfml-system)
 
