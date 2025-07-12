@@ -1,16 +1,30 @@
-#include <iostream>
+#include <SFML/Graphics.hpp>
 
-// TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 int main() {
-    // TIP Press <shortcut actionId="RenameElement"/> when your caret is at the <b>lang</b> variable name to see how CLion can help you rename it.
-    auto lang = "C++";
-    std::cout << "Hello and welcome to " << lang << "!\n";
+    // Create a window
+    sf::RenderWindow window({640, 480}, "Simple SFML Test");
 
-    for (int i = 1; i <= 5; i++) {
-        // TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        std::cout << "i = " << i << std::endl;
+    // A moving circle
+    sf::CircleShape circle(20.f);
+    circle.setFillColor(sf::Color::Cyan);
+    circle.setPosition(0.f, 240.f);
+
+    sf::Clock clock;
+    while (window.isOpen()) {
+        sf::Event ev;
+        while (window.pollEvent(ev))
+            if (ev.type == sf::Event::Closed)
+                window.close();
+
+        // Move at 100 pixels/sec, wrap around
+        float dt = clock.restart().asSeconds();
+        circle.move(100.f * dt, 0.f);
+        if (circle.getPosition().x > 640)
+            circle.setPosition(-40.f, 240.f);
+
+        window.clear();
+        window.draw(circle);
+        window.display();
     }
-
     return 0;
-    // TIP See CLion help at <a href="https://www.jetbrains.com/help/clion/">jetbrains.com/help/clion/</a>. Also, you can try interactive lessons for CLion by selecting 'Help | Learn IDE Features' from the main menu.
 }
