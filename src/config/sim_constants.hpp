@@ -1,8 +1,9 @@
-//
-// Created by jerom on 7/13/2025.
-//
+#pragma once
 
-#ifndef SIM_CONSTANTS_HPP
-#define SIM_CONSTANTS_HPP
+namespace config::sim {
+    //the time step for each frame (set to 60 fps)
+    inline constexpr float timeStep = 1.f / 60.f;
 
-#endif //SIM_CONSTANTS_HPP
+    //maximum simulation duration (don't want the sim to be running forever)
+    inline constexpr float maxSimTime = 3600.f; // e.g., 1 hour
+}

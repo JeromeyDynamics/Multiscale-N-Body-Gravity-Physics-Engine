@@ -1,16 +1,8 @@
-//
-// Created by jerom on 7/13/2025.
-//
+#pragma once
+#include <cmath>
 
-#ifndef MATH_CONSTANTS_HPP
-#define MATH_CONSTANTS_HPP
-
-
-
-class math_constants {
-
-};
-
-
-
-#endif //MATH_CONSTANTS_HPP
+namespace config::math {
+    inline constexpr float pi = 3.14159265358979323846f;
+    inline constexpr float degToRad = pi / 180.f;
+    inline constexpr float radToDeg = 180.f / pi;
+}

@@ -1,8 +1,15 @@
-//
-// Created by jerom on 7/13/2025.
-//
+#pragma once
+#include <SFML/Graphics.hpp>
 
-#ifndef RENDER_CONSTANTS_HPP
-#define RENDER_CONSTANTS_HPP
+namespace config::render {
+    //window dimensions
+    inline constexpr unsigned int windowWidth  = 800;
+    inline constexpr unsigned int windowHeight = 600;
 
-#endif //RENDER_CONSTANTS_HPP
+    //frame rate cap
+    inline constexpr unsigned int frameRateLimit = 60;
+
+    //colors
+    inline const sf::Color backgroundColor = sf::Color::Black;
+    inline const sf::Color centerMassColor = sf::Color::Yellow;
+}
