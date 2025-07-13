@@ -1,5 +1,5 @@
 #include <SFML/Graphics.hpp>
-#include "src/entities/central_mass.h++"
+#include "src/entities/central_mass.hpp"
 
 int main() {
     sf::RenderWindow window(sf::VideoMode(800, 600), "Central Mass Demo");

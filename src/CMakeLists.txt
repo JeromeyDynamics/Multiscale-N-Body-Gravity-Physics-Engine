@@ -16,6 +16,10 @@ file(GLOB_RECURSE ENGINE_SOURCES CONFIGURE_DEPENDS
 add_library(multiscale_engine STATIC
     ${ENGINE_SOURCES}
     ${ENGINE_HEADERS}
+        config/math_constants.hpp
+        config/physics_constants.hpp
+        config/sim_constants.hpp
+        config/render_constants.hpp
 )
 
 #exposes the include directory so that files can #include <core/sim_object.hpp>, etc.

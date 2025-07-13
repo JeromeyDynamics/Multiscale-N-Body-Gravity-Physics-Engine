@@ -1,4 +1,4 @@
-#include "central_mass.h++"
+#include "central_mass.hpp"
 
 CentralMass::CentralMass(float x, float y, float radius, sf::Color color)
 {
