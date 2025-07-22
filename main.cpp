@@ -1,21 +1,33 @@
+#include <SFML/Graphics.hpp>
 #include <memory>
 #include "core/simulation.hpp"
 #include "entities/central_mass.hpp"
-#include <SFML/Graphics.hpp>
+#include "entities/orbit_object.hpp"
+#include "config/color_constants.hpp"
 
 int main() {
     Simulation sim;
 
-    //defines and creates the central mass object
-    auto sun = std::make_shared<CentralMass>(
+    //Objects:
+    const auto Sun = std::make_shared<CentralMass>(
         400.f, // x
         300.f, // y
-        50.f, // radius
-        1e12f, // mass
-        sf::Color::Yellow // color
+        139.f, // radius
+        4.385e30f, // mass
+        config::colors::yellow // color
     );
 
-    sim.addObject(sun);
+    sim.addObject(Sun);
+
+    const auto Jupiter = std::make_shared<OrbitObject>(
+        600.f, // x
+        200.f, // y
+        5.02f, // radius
+        4.18e27f, // mass
+        config::colors::brown // color
+    );
+
+    sim.addObject(Jupiter);
 
     sim.run();
 

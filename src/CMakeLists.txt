@@ -6,7 +6,8 @@ file(GLOB_RECURSE ENGINE_SOURCES CONFIGURE_DEPENDS
         ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp
 )
 
-add_library(multiscale_engine STATIC ${ENGINE_SOURCES})
+add_library(multiscale_engine STATIC ${ENGINE_SOURCES}
+        config/color_constants.hpp)
 
 target_include_directories(multiscale_engine
         PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}

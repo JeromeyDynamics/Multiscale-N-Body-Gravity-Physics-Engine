@@ -1,16 +1,15 @@
-//
-// Created by jerom on 7/12/2025.
-//
+#pragma once
+#include "../core/sim_object.hpp"
+#include <SFML/Graphics.hpp>
 
-#ifndef ORBIT_OBJECT_H
-#define ORBIT_OBJECT_H
+class OrbitObject : public SimObject {
+public:
+    OrbitObject(float x, float y, float radius, float mass, sf::Color color);
 
+    void update(float /*dt*/) override;
+    void render(sf::RenderWindow& window) const override;
 
-
-class OrbitObject {
-
+private:
+    sf::CircleShape shape;
+    float mass;
 };
-
-
-
-#endif //ORBIT_OBJECT_H
