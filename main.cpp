@@ -1,22 +1,32 @@
-#include <SFML/Graphics.hpp>
-#include "src/entities/central_mass.hpp"
+#include <memory>
+#include "core/object_manager.hpp"
+#include "entities/central_mass.hpp"
+#include "render/renderer.hpp"
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Central Mass Demo");
-    window.setFramerateLimit(60);
+    ObjectManager manager;
+    Renderer renderer(800, 600, "THE SUN!!!");
 
-    // center at (400,300), radius 40, red color
-    CentralMass center(400.f, 300.f, 40.f, sf::Color::Red);
+    //defines and creates the central mass object
+    auto center = std::make_shared<CentralMass>(
+        400.f, // x
+        300.f, // y
+        50.f, // radius
+        1e12f, // mass
+        sf::Color::Yellow // color
+    );
+    manager.addObject(center);
 
-    while (window.isOpen()) {
-        sf::Event ev;
-        while (window.pollEvent(ev))
-            if (ev.type == sf::Event::Closed)
-                window.close();
+    sf::Clock clock;
+    while (renderer.isOpen()) {
+        renderer.processEvents();
 
-        window.clear(sf::Color::Black);
-        window.draw(center.getShape());
-        window.display();
+        float dt = clock.restart().asSeconds();
+        manager.updateAll(dt);
+
+        renderer.clear();
+        renderer.renderAll(manager);
+        renderer.display();
     }
 
     return 0;

@@ -12,4 +12,5 @@ namespace config::render {
     //colors
     inline const sf::Color backgroundColor = sf::Color::Black;
     inline const sf::Color centerMassColor = sf::Color::Yellow;
+    inline const sf::Color orbitersColor = sf::Color::Blue;
 }

@@ -7,7 +7,7 @@
 
 
 
-class orbit_object {
+class OrbitObject {
 
 };
 

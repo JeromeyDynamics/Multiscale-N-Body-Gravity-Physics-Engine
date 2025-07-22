@@ -1,16 +1,9 @@
-//
-// Created by jerom on 7/12/2025.
-//
+#pragma once
+#include <SFML/Graphics.hpp>
+#include "../config/render_constants.hpp"
 
-#ifndef COLOR_PALETTE_H
-#define COLOR_PALETTE_H
-
-
-
-class color_palette {
-
-};
-
-
-
-#endif //COLOR_PALETTE_H
+namespace RenderColors {
+    inline const sf::Color background = config::render::backgroundColor;
+    inline const sf::Color centralMass  = config::render::centerMassColor;
+    inline const sf::Color orbiters    = config::render::orbitersColor;
+}

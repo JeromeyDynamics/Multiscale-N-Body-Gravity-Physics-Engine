@@ -2,15 +2,15 @@
 // Created by jerom on 7/12/2025.
 //
 
-#ifndef SIMULATION_H
-#define SIMULATION_H
+#ifndef SIMULATOR_H
+#define SIMULATOR_H
 
 
 
-class simulation {
+class Simulation {
 
 };
 
 
 
-#endif //SIMULATION_H
+#endif //SIMULATOR_H

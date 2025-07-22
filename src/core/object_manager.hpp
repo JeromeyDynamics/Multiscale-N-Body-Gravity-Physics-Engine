@@ -1,16 +1,22 @@
-//
-// Created by jerom on 7/12/2025.
-//
+#pragma once
+#include <memory>
+#include <vector>
+#include "sim_object.hpp"
 
-#ifndef OBJECT_MANAGER_H
-#define OBJECT_MANAGER_H
+class ObjectManager {
+public:
+    //adds a pointer to a SimObject to the objects vector
+    void addObject(std::shared_ptr<SimObject> obj);
 
+    //moves every object by dt
+    void updateAll(float dt);
 
+    //draws every object into the given window
+    void renderAll(sf::RenderWindow& window) const;
 
-class object_manager {
+    //returns the objects vector
+    const std::vector<std::shared_ptr<SimObject>>& getObjects() const;
 
+private:
+    std::vector<std::shared_ptr<SimObject>> objects;
 };
-
-
-
-#endif //OBJECT_MANAGER_H

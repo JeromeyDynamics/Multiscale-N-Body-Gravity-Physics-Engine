@@ -1,12 +1,15 @@
-//used instead of having the guards
 #pragma once
+#include "../core/sim_object.hpp"
 #include <SFML/Graphics.hpp>
 
-class CentralMass {
+class CentralMass : public SimObject {
 public:
-    CentralMass(float x, float y, float radius, sf::Color color = sf::Color::Yellow);
-    const sf::CircleShape& getShape() const;
+    CentralMass(float x, float y, float radius, float mass, sf::Color color);
+
+    void update(float /*dt*/) override;
+    void render(sf::RenderWindow& window) const override;
 
 private:
     sf::CircleShape shape;
+    float mass;
 };
