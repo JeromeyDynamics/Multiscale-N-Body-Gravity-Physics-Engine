@@ -1,7 +1,7 @@
 #include "renderer.hpp"
 
-Renderer::Renderer(unsigned int w, unsigned int h, const std::string& title) : window(w, h, title) {
-
+Renderer::Renderer(unsigned int width, unsigned int height, const std::string& title) : window(sf::VideoMode(width, height), title) {
+    window.setFramerateLimit(60);
 }
 
 bool Renderer::isOpen() const {
@@ -9,20 +9,20 @@ bool Renderer::isOpen() const {
 }
 
 void Renderer::processEvents() {
-    sf::Event e;
-    while (window.pollEvent(e)) {
-        if (e.type == sf::Event::Closed)
-            window.handle().close();
+    sf::Event event;
+    while (window.pollEvent(event)) {
+        if (event.type == sf::Event::Closed)
+            window.close();
     }
 }
 
 void Renderer::clear() {
-    window.clear();
+    window.clear(sf::Color::Black);
 }
 
 void Renderer::renderAll(const ObjectManager& mgr) {
     for (const auto& obj : mgr.getObjects()) {
-        obj->render(window.handle());
+        obj->render(window);
     }
 }
 
