@@ -33,6 +33,8 @@ bool checkCollision(const Ball& a, const Ball& b) {
 //effectively makes the balls bounce off of each other
 void makeTheBallsBounce(Ball& a, Ball& b) {
     std::swap(a.velocity, b.velocity);
+    a.shape.setRadius(radius + 10);
+    b.shape.setRadius(radius + 10);
 }
 
 int main() {
@@ -42,7 +44,7 @@ int main() {
 
     //this makes the 2 ball objects at different positions and opposite velocities
     Ball ball1(100, 100, {speed, speed});
-    Ball ball2(500, 300, {-speed, -speed});
+    Ball ball2(300, 300, {-speed, -speed});
 
     //this will be used with the update function of the ball object for smooth movements by measuring the time elapsed between frames
     sf::Clock clock;
